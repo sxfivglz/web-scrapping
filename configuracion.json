@@ -1,0 +1,35 @@
+{
+    "configuracion":[
+        {
+            "URL": "https://mx.indeed.com/jobs?q=desarrollador%20web&l=Torre%C3%B3n%2C%20Coah.&from=searchOnDesktopSerp"
+        },
+        {
+            "type": "UL",
+            "xpath": "/html/body/main/div/div[2]/div/div[5]/div/div[1]/div[5]/div/ul",
+            "file": "empleos"
+        
+        },
+        {
+            "type": "INPUT",
+            "xpath": "/html/body/main/div/div[2]/div/div[2]/div/div/div/div[1]/form/div/div[1]/div[1]/div/div/span/input",
+            "value": "Desarrollador Web"
+        },
+        {
+            "type": "INPUT",
+            "xpath": "/html/body/main/div/div[2]/div/div[2]/div/div/div/div[1]/form/div/div[1]/div[2]/div/div/span/input",
+            "value": "Torreón, Coah."
+        },
+        {
+            "type": "BUTTON",
+            "xpath": "/html/body/main/div/div[2]/div/div[2]/div/div/div/div[1]/form/div/div[3]/button",
+            "click": "true"
+        },
+        {
+            "type": "A",
+            "xpath": "/html/body/main/div/div[2]/div/div[5]/div/div[1]/div[5]/div/ul/li[1]/div/div[1]/a",
+            "click": "true"
+        }
+
+        
+    ]
+}
