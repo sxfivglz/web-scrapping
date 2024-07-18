@@ -1,0 +1,86 @@
+{
+    "start_url": "https://www.meteored.mx",
+    "actions": [
+        {
+            "action": "input",
+            "by": "ID",
+            "value": "search_pc",
+            "input_value": "Torreón,Coahuila",
+            "key_press": "ARROW_DOWN",
+            "wait": 3
+        },
+        {
+            "action": "key_press",
+            "by": "ID",
+            "value": "search_pc",
+            "key": "ENTER"
+        },
+        {
+            "action": "wait",
+            "wait": 5
+        },
+        {
+            "action": "find_elements",
+            "by": "CLASS_NAME",
+            "value": "col day_col",
+            "actions": [
+                {
+                    "action": "click",
+                    "by": "CLASS_NAME",
+                    "value": "col day_col"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "CLASS_NAME",
+                    "value": "text-0",
+                    "save_as": "day"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "CLASS_NAME",
+                    "value": "subtitle-m",
+                    "save_as": "date"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "CLASS_NAME",
+                    "value": "temp",
+                    "save_as": "weather"
+                },
+                {
+                    "action": "store_data",
+                    "data": {
+                        "day": "{{day}}",
+                        "date": "{{date}}",
+                        "weather": "{{weather}}"
+                    }
+                },
+                {
+                    "action": "click",
+                    "by": "CLASS_NAME",
+                    "value": "horas"
+                },
+                {
+                    "action":"go_back"
+                }
+            ]
+        }
+    ],
+    "output": {
+        "filename": "clima.xlsx",
+        "columns": [
+            {
+                "header": "Día",
+                "field": "day"
+            },
+            {
+                "header": "Fecha",
+                "field": "date"
+            },
+            {
+                "header": "Clima",
+                "field": "weather"
+            }
+        ]
+    }
+}

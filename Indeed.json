@@ -1,0 +1,84 @@
+{
+  "start_url": "https://mx.indeed.com/",
+  "actions": [
+    {
+      "action": "input",
+      "by": "ID",
+      "value": "text-input-what",
+      "input_value": "Desarrollador web"
+    },
+    {
+      "action": "input",
+      "by": "ID",
+      "value": "text-input-where",
+      "input_value": "Torreón, Coah",
+      "key_press": "ARROW_DOWN"
+    },
+    {
+      "action": "key_press",
+      "by": "ID",
+      "value": "text-input-where",
+      "key": "ENTER"
+    },
+    {
+      "action": "click",
+      "by": "CLASS_NAME",
+      "value": "yosegi-InlineWhatWhere-primaryButton"
+    },
+    {
+      "action": "wait",
+      "wait": 5
+    },
+    {
+      "action": "get_element_text",
+      "by": "CLASS_NAME",
+      "value": "jobsearch-JobCountAndSortPane-jobCount",
+      "save_as": "job_count"
+    },
+    {
+      "action": "find_elements",
+      "by": "CLASS_NAME",
+      "value": "job_seen_beacon",
+      "actions": [
+        {
+          "action": "click",
+          "by": "CLASS_NAME",
+          "value": "big6_visualChanges css-1v79ar eu4oa1w0"
+        },
+        {
+          "action": "get_element_text",
+          "by": "CLASS_NAME",
+          "value": "jobsearch-JobInfoHeader-title",
+          "save_as": "title"
+        },
+        {
+          "action": "get_element_text",
+          "by": "CLASS_NAME",
+          "value": "css-1ioi40n",
+          "save_as": "company"
+        },
+        {
+          "action": "get_element_text",
+          "by": "ID",
+          "value": "salaryInfoAndJobType",
+          "save_as": "salary"
+        },
+        {
+          "action": "store_data",
+          "data": {
+            "Puesto": "{title}",
+            "Empresa": "{company}",
+            "Pago y horario": "{salary}"
+          }
+        },
+        {
+          "action": "go_back"
+        }
+      ]
+    }
+  ],
+  "output": {
+    "filename": "trabajos.xlsx",
+    "columns": ["Puesto", "Empresa", "Pago y horario"]
+  }
+}
