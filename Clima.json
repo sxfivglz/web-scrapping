@@ -5,35 +5,36 @@
             "action": "input",
             "by": "ID",
             "value": "search_pc",
-            "input_value": "Torreón,Coahuila",
-            "key_press": "ARROW_DOWN",
-            "wait": 3
-        },
-        {
-            "action": "key_press",
-            "by": "ID",
-            "value": "search_pc",
-            "key": "ENTER"
+            "input_value": "Torreón, Coahuila"
         },
         {
             "action": "wait",
-            "wait": 5
+            "wait": 3
+        },
+        {
+            "action": "click",
+            "by": "XPATH",
+            "value": "/html/body/header/div[1]/div/div[1]/form/div/ul/li[1]"
+        },
+        {
+            "action": "wait",
+            "wait": 3
         },
         {
             "action": "find_elements",
-            "by": "CLASS_NAME",
-            "value": "col day_col",
+            "by": "XPATH",
+            "value": "/html/body/main/div[2]/section/section[2]/div/ul/li",
             "actions": [
                 {
                     "action": "click",
-                    "by": "CLASS_NAME",
-                    "value": "col day_col"
+                    "by": "XPATH",
+                    "value": "/html/body/main/div[2]/section/section[2]/div/ul/li"
                 },
                 {
                     "action": "get_element_text",
-                    "by": "CLASS_NAME",
-                    "value": "text-0",
-                    "save_as": "day"
+                    "by": "CSS_SELECTOR",
+                    "value": "body > main > div.flex-w > section > section.dias.card_struct > div > ul > li.grid-item.dia> span > span.text-0",
+                    "save_as": "day_name"
                 },
                 {
                     "action": "get_element_text",
@@ -45,42 +46,22 @@
                     "action": "get_element_text",
                     "by": "CLASS_NAME",
                     "value": "temp",
-                    "save_as": "weather"
+                    "save_as": "temperature"
                 },
                 {
                     "action": "store_data",
                     "data": {
-                        "day": "{{day}}",
-                        "date": "{{date}}",
-                        "weather": "{{weather}}"
+                        "Día": "{day_name}",
+                        "Fecha": "{date}",
+                        "Temperatura Máxima y Mínima": "{temperature}"
                     }
-                },
-                {
-                    "action": "click",
-                    "by": "CLASS_NAME",
-                    "value": "horas"
-                },
-                {
-                    "action":"go_back"
                 }
             ]
         }
+        
     ],
     "output": {
         "filename": "clima.xlsx",
-        "columns": [
-            {
-                "header": "Día",
-                "field": "day"
-            },
-            {
-                "header": "Fecha",
-                "field": "date"
-            },
-            {
-                "header": "Clima",
-                "field": "weather"
-            }
-        ]
+        "columns": ["Día", "Fecha", "Temperatura Máxima y Mínima"]
     }
 }

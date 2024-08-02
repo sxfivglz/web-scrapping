@@ -11,19 +11,13 @@
       "action": "input",
       "by": "ID",
       "value": "text-input-where",
-      "input_value": "Torreón, Coah",
-      "key_press": "ARROW_DOWN"
+      "input_value": "Torreón, Coah"
     },
     {
       "action": "key_press",
       "by": "ID",
       "value": "text-input-where",
       "key": "ENTER"
-    },
-    {
-      "action": "click",
-      "by": "CLASS_NAME",
-      "value": "yosegi-InlineWhatWhere-primaryButton"
     },
     {
       "action": "wait",
@@ -46,21 +40,25 @@
           "value": "big6_visualChanges css-1v79ar eu4oa1w0"
         },
         {
+          "action": "wait",
+          "wait": 5
+        },
+        {
           "action": "get_element_text",
-          "by": "CLASS_NAME",
-          "value": "jobsearch-JobInfoHeader-title",
+          "by": "XPATH",
+          "value": "/html/body/main/div/div[2]/div/div[5]/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div[1]/div[1]/h2/span[1]",
           "save_as": "title"
         },
         {
           "action": "get_element_text",
-          "by": "CLASS_NAME",
-          "value": "css-1ioi40n",
+          "by": "XPATH",
+          "value": "/html/body/main/div/div[2]/div/div[5]/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div[1]/div[2]/div/div/div/div[1]/div/span/a",
           "save_as": "company"
         },
         {
           "action": "get_element_text",
-          "by": "ID",
-          "value": "salaryInfoAndJobType",
+          "by": "XPATH",
+          "value": "/html/body/main/div/div[2]/div/div[5]/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/div/div",
           "save_as": "salary"
         },
         {
@@ -70,9 +68,6 @@
             "Empresa": "{company}",
             "Pago y horario": "{salary}"
           }
-        },
-        {
-          "action": "go_back"
         }
       ]
     }
