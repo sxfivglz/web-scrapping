@@ -24,7 +24,7 @@
             "action": "find_elements",
             "by": "XPATH",
             "value": "/html/body/main/div[2]/section/section[2]/div/ul/li",
-            "actions": [
+            "columns": [
                 {
                     "action": "click",
                     "by": "XPATH",

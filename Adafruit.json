@@ -1,0 +1,116 @@
+{
+    "start_url": "https://accounts.adafruit.com/users/sign_in",
+    "actions": [
+        {
+            "action": "input",
+            "by": "ID",
+            "value": "user_login",
+            "input_value": "sofiaglz"
+        },
+        {
+            "action": "input",
+            "by": "ID",
+            "value": "user_password",
+            "input_value": "adafruit_credential",
+            "hidden": true,
+            "wait": 0
+        },
+        {
+            "action": "click",
+            "by": "CSS_SELECTOR",
+            "value": "#new_user > input.large.sign-in-button.wide",
+            "wait": 2
+        },
+        {
+            "action": "click",
+            "by": "CSS_SELECTOR",
+            "value": "#large-header > div.first-row > div > nav > ul > li:nth-child(7) > a",
+            "wait": 2
+        },
+        {
+            "action": "click",
+            "by": "CSS_SELECTOR",
+            "value": "#large-header > div.second-row > div > div.left-content > ul > li:nth-child(2) > button",
+            "wait": 2
+        },
+        {
+            "action": "click",
+            "by": "CSS_SELECTOR",
+            "value": "#content-wrapper > div > div:nth-child(3) > table > tbody > tr:nth-child(2) > td.name > a",
+            "wait": 2
+        },
+        {
+            "action": "scroll",
+            "direction": "down",
+            "value": "200"
+        },
+        {
+            "action": "find_elements",
+            "by": "XPATH",
+            "value": "/html/body/div/div/div/main/div[1]/div[1]/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/table/tbody/tr",
+            "columns": [
+                {
+                    "action": "get_element_text",
+                    "by": "CSS_SELECTOR",
+                    "value": "td.created-at",
+                    "save_as": "Fecha y hora"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "CSS_SELECTOR",
+                    "value": "td.value",
+                    "save_as": "Datos"
+                },
+                {
+                    "action": "store_data",
+                    "data": {
+                        "Fecha y hora": "{Fecha y hora}",
+                        "Datos": "{Datos}"
+                    }
+                }
+            ]
+        },
+        {
+            "action": "click",
+            "by": "CSS_SELECTOR",
+            "value": "#content-wrapper > div:nth-child(2) > div > div:nth-child(2) > div.table-section > div > div.pagination-control > span:nth-child(3) > button",
+            "wait": 2
+        },
+        {
+            "action": "scroll",
+            "direction": "down",
+            "value": "200"
+        },
+        {
+            "action": "find_elements",
+            "by": "XPATH",
+            "value": "/html/body/div/div/div/main/div[1]/div[1]/div/div/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/table/tbody/tr",
+            "columns": [
+                {
+                    "action": "get_element_text",
+                    "by": "CSS_SELECTOR",
+                    "value": "td.created-at",
+                    "save_as": "Fecha y hora"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "CSS_SELECTOR",
+                    "value": "td.value",
+                    "save_as": "Datos"
+                },
+                {
+                    "action": "store_data",
+                    "data": {
+                        "Fecha y hora": "{Fecha y hora}",
+                        "Datos": "{Datos}"
+                    }
+                }
+            ]
+        }
+    ],
+
+    "output": {
+        "filename": "adafruit.xlsx",
+        "columns": ["Fecha y hora", "Datos"]
+    }
+}

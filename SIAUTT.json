@@ -57,7 +57,7 @@
             "action": "find_elements",
             "by": "css_selector",
             "value": "#Tabla > tbody > tr",
-            "actions": [
+            "columns": [
                 {
                     "action": "get_element_text",
                     "by": "css_selector",

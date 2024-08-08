@@ -1,0 +1,33 @@
+{
+  "start_url": "Cualquier URL que sea válida",
+  "actions-example": "Lista de acciones a realizar en la automatización",
+  "actions": [
+      {
+          "action": "click / input / key_press / wait / get_element_text / find_elements / store_data / go_back / scroll",
+          "by": "LINK_TEXT / ID / NAME / TAG_NAME / CLASS_NAME / CSS_SELECTOR / XPATH",
+          "value": "El valor del selector que identifica al elemento en la página, basado en el 'by' seleccionado",
+          "input_value": "Valor a ingresar en un campo de texto, select o keyboard",
+          "hidden": "true / false (Opcional) Si la acción es 'input' y se desea que el valor esté oculto",
+          "wait": "Tiempo de espera en segundos después de realizar la acción",
+          "key": "Tecla a presionar (solo para acción 'key_press')",
+          "save_as": "Nombre de la clave para almacenar el texto obtenido",
+          "data": "Diccionario de datos a almacenar",
+          "direction": "Dirección del desplazamiento: 'up' o 'down' (solo para acción 'scroll')"
+      },
+      {
+          "action": "find_elements",
+          "by": "LINK_TEXT / ID / NAME / TAG_NAME / CLASS_NAME / CSS_SELECTOR / XPATH",
+          "value": "El valor del selector que identifica al elemento en la página, basado en el 'by' seleccionado",
+          "actions": "Lista de acciones a realizar en cada elemento encontrado",
+          "wait": "Tiempo de espera en segundos después de realizar la acción"
+      }
+  ],
+  "next_page_selector": {
+      "by": "LINK_TEXT / ID / NAME / TAG_NAME / CLASS_NAME / CSS_SELECTOR / XPATH",
+      "value": "El valor del selector que identifica el botón de la siguiente página"
+  },
+  "output": {
+      "filename": "Nombre del archivo Excel donde se guardarán los datos extraídos",
+      "columns": ["Lista de nombres de columnas a guardar en el archivo de salida"]
+  }
+}

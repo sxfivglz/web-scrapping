@@ -13,12 +13,6 @@ class WebScraper:
         self.driver = driver
         self.data = []
 
-    def run_from_json(self, json_file):
-        """Carga la configuración desde un archivo JSON y ejecuta el scraper."""
-        with open(json_file, 'r') as f:
-            config = json.load(f)
-        self.run(config)
-
     def run(self, config):
         """Ejecuta el scraper basado en la configuración proporcionada."""
         try:
@@ -26,19 +20,11 @@ class WebScraper:
             self.driver.get(start_url)
             time.sleep(2)
 
-            while True:
-                for action in config['actions']:
-                    self.execute_action(action)
+            actions = config['actions']
+            for action in actions:
+                self.execute_action(action)
 
-                # Verificar si hay una siguiente página y hacer clic si existe
-                next_page_button = self.find_next_page_button(config)
-                if not next_page_button:
-                    break
-
-                # Hacer clic en el botón de la siguiente página
-                next_page_button.click()
-                time.sleep(2)  # Esperar a que cargue la nueva página
-
+            # Guardar los datos obtenidos en el archivo especificado
             filename = config['output']['filename']
             columns = config['output'].get('columns')
             self.guardar_datos(filename, columns)
@@ -134,7 +120,6 @@ class WebScraper:
         """Encuentra elementos y ejecuta acciones en ellos según la configuración JSON."""
         print(f"Ejecutando acción 'find_elements' en elementos con selector {action['value']}")
         try:
-            # Localizar todos los elementos basados en el método y valor proporcionado
             elements = WebDriverWait(self.driver, 10).until(
                 EC.presence_of_all_elements_located((self.get_by_method(action['by']), action['value']))
             )
@@ -144,13 +129,8 @@ class WebScraper:
             for element in elements:
                 try:
                     row = {}
-                    # Ejecutar acciones para cada elemento encontrado
-                    for sub_action in action['actions']:
-                        if sub_action['action'] == 'click':
-                            print(f"Ejecutando acción 'click' en elemento {element}")
-                            element.click()
-                        
-                        elif sub_action['action'] == 'get_element_text':
+                    for sub_action in action['columns']:
+                        if sub_action['action'] == 'get_element_text':
                             print(f"Ejecutando acción 'get_element_text' en elemento {element}")
                             text_element = WebDriverWait(self.driver, 10).until(
                                 EC.visibility_of(element.find_element(self.get_by_method(sub_action['by']), sub_action['value']))
@@ -159,24 +139,23 @@ class WebScraper:
                             if 'save_as' in sub_action:
                                 row[sub_action['save_as']] = text
                             print(f"{sub_action['save_as']}: {text}")
-                        
+
                         elif sub_action['action'] == 'store_data':
                             for key, value in sub_action['data'].items():
                                 if '{' in value and '}' in value:
                                     value = value.format(**row)
                                 row[key] = value
                             print(f"Datos almacenados: {row}")
-                        
+
                         elif sub_action['action'] == 'go_back':
                             self.go_back_action()
-                        
+
                         elif sub_action['action'] == 'scroll':
                             self.scroll_action(sub_action)
-                        
+
                         else:
                             print(f"Acción no reconocida: {sub_action['action']}")
                     
-                    # Solo añadir datos si hay información en la fila
                     if any(row.values()):
                         self.data.append(row)
                         print(f"Datos añadidos a la lista: {row}")
@@ -200,47 +179,27 @@ class WebScraper:
             data_to_store = {}
             for key, value in action['data'].items():
                 if '{' in value and '}' in value:
-                    value = value.format(**self.data[-1] if self.data else {})
+                    value = value.format(**self.data[-1])
                 data_to_store[key] = value
-                print(f"{key}: {value}")
-            if data_to_store not in self.data:
-                self.data.append(data_to_store)
+            self.data.append(data_to_store)
             print(f"Datos almacenados: {data_to_store}")
         except Exception as e:
-            print(f"Error en acción 'store_data': {e}")
+            print(f"Error al almacenar datos: {e}")
 
     def go_back_action(self):
-        """Ejecuta la acción de regresar a la página anterior."""
+        """Regresa a la página anterior."""
         print("Ejecutando acción 'go_back'")
-        try:
-            self.driver.back()
-            time.sleep(2)
-        except Exception as e:
-            print(f"Error en acción 'go_back': {e}")
+        self.driver.back()
+        time.sleep(2)
 
     def scroll_action(self, action):
-        """Ejecuta la acción de desplazamiento basado en el valor proporcionado."""
-        print(f"Ejecutando acción 'scroll' con valor {action['value']}")
-        try:
-            if action['direction'] == 'down':
-                self.driver.execute_script(f"window.scrollBy(0, {action['value']});")
-            elif action['direction'] == 'up':
-                self.driver.execute_script(f"window.scrollBy(0, -{action['value']});")
-            time.sleep(action.get('wait', 1))
-        except Exception as e:
-            print(f"Error en acción 'scroll': {e}")
-
-    def find_next_page_button(self, config):
-        """Encuentra el botón de la siguiente página basado en la configuración JSON."""
-        try:
-            next_page_selector = config['next_page_selector']
-            next_page_button = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((self.get_by_method(next_page_selector['by']), next_page_selector['value']))
-            )
-            return next_page_button
-        except Exception as e:
-            print(f"Error encontrando el botón de la siguiente página: {e}")
-            return None
+        """Desplaza la página según la dirección y valor proporcionados."""
+        print(f"Ejecutando acción 'scroll' hacia {action['direction']} por {action['value']} píxeles")
+        if action['direction'] == 'down':
+            self.driver.execute_script(f"window.scrollBy(0, {action['value']});")
+        elif action['direction'] == 'up':
+            self.driver.execute_script(f"window.scrollBy(0, -{action['value']});")
+        time.sleep(2)
 
     def get_by_method(self, method):
         """Devuelve el tipo de selector de elementos basado en el método especificado."""
@@ -263,13 +222,9 @@ class WebScraper:
             return By.XPATH
 
     def guardar_datos(self, filename, columns):
-        """Guarda los datos en un archivo CSV basado en la configuración JSON."""
-        print(f"Guardando datos en el archivo {filename}")
-        try:
-            df = pd.DataFrame(self.data)
-            if columns:
-                df = df[columns]
-            df.to_excel(filename, index=False)
-            print("Datos guardados exitosamente.")
-        except Exception as e:
-            print(f"Error guardando datos: {e}")
+        """Guarda los datos obtenidos en un archivo Excel."""
+        print(f"Guardando datos en {filename}")
+        df = pd.DataFrame(self.data)
+        if columns:
+            df = df[columns]
+        df.to_excel(filename, index=False)

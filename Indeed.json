@@ -33,7 +33,7 @@
       "action": "find_elements",
       "by": "CLASS_NAME",
       "value": "job_seen_beacon",
-      "actions": [
+      "columns": [
         {
           "action": "click",
           "by": "CLASS_NAME",
