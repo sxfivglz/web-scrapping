@@ -60,15 +60,9 @@
                     "by": "CSS_SELECTOR",
                     "value": "td.value",
                     "save_as": "Datos"
-                },
-                {
-                    "action": "store_data",
-                    "data": {
-                        "Fecha y hora": "{Fecha y hora}",
-                        "Datos": "{Datos}"
-                    }
                 }
-            ]
+            ],
+            "wait": 0
         },
         {
             "action": "click",
@@ -97,20 +91,16 @@
                     "by": "CSS_SELECTOR",
                     "value": "td.value",
                     "save_as": "Datos"
-                },
-                {
-                    "action": "store_data",
-                    "data": {
-                        "Fecha y hora": "{Fecha y hora}",
-                        "Datos": "{Datos}"
-                    }
                 }
-            ]
+            ],
+            "wait": 0
         }
     ],
-
-    "output": {
-        "filename": "adafruit.xlsx",
-        "columns": ["Fecha y hora", "Datos"]
-    }
+    "output_configs": [
+        {
+            "section": "default",
+            "filename": "Adafruit",
+            "columns": ["Fecha y hora", "Datos"]
+        }
+    ]
 }

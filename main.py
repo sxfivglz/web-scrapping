@@ -8,11 +8,10 @@ import os
 load_dotenv()
 
 def main():
-    #config_files = ['Indeed.json']
     #config_files = ['Clima.json']
-    #config_files =['SIAUTT.json']
-    config_files = ['Adafruit.json']
-    
+    config_files =['SIAUTT.json']
+    #config_files = ['Adafruit.json']
+    #config_files = ['Examen.json']
     options = webdriver.ChromeOptions()
     options.add_argument("--start-maximized")
     options.add_argument("--disable-notifications")
@@ -60,4 +59,8 @@ if __name__ == "__main__":
             return By.CSS_SELECTOR
         elif method == 'xpath':
             return By.XPATH
+    '''
+
+    '''
+    Elegir 5 planes de estudio y extraer las materias
     '''

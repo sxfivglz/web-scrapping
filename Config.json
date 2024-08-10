@@ -1,33 +1,62 @@
 {
-  "start_url": "Cualquier URL que sea válida",
-  "actions-example": "Lista de acciones a realizar en la automatización",
-  "actions": [
-      {
-          "action": "click / input / key_press / wait / get_element_text / find_elements / store_data / go_back / scroll",
-          "by": "LINK_TEXT / ID / NAME / TAG_NAME / CLASS_NAME / CSS_SELECTOR / XPATH",
-          "value": "El valor del selector que identifica al elemento en la página, basado en el 'by' seleccionado",
-          "input_value": "Valor a ingresar en un campo de texto, select o keyboard",
-          "hidden": "true / false (Opcional) Si la acción es 'input' y se desea que el valor esté oculto",
-          "wait": "Tiempo de espera en segundos después de realizar la acción",
-          "key": "Tecla a presionar (solo para acción 'key_press')",
-          "save_as": "Nombre de la clave para almacenar el texto obtenido",
-          "data": "Diccionario de datos a almacenar",
-          "direction": "Dirección del desplazamiento: 'up' o 'down' (solo para acción 'scroll')"
+    "documentation": {
+      "start_url": {
+        "description": "URL del sitio web a scrapear. Debe ser una URL válida."
       },
-      {
-          "action": "find_elements",
-          "by": "LINK_TEXT / ID / NAME / TAG_NAME / CLASS_NAME / CSS_SELECTOR / XPATH",
-          "value": "El valor del selector que identifica al elemento en la página, basado en el 'by' seleccionado",
-          "actions": "Lista de acciones a realizar en cada elemento encontrado",
-          "wait": "Tiempo de espera en segundos después de realizar la acción"
+      "actions": {
+        "description": "Lista de acciones a realizar en el sitio web, ordenadas secuencialmente.",
+        "action": {
+          "description": "Tipo de acción a ejecutar. Los valores posibles son: 'click', 'input', 'key_press', 'wait', 'get_element_text', 'find_elements', 'store_data', 'go_back', 'scroll'."
+        },
+        "by": {
+          "description": "Método para ubicar el elemento. Los valores posibles son: 'CSS_SELECTOR', 'ID', 'NAME', 'XPATH', 'LINK_TEXT', 'PARTIAL_LINK_TEXT', 'TAG_NAME', 'CLASS_NAME'."
+        },
+        "value": {
+          "description": "Selector específico del elemento en la página web. Debe ser un selector válido según el método especificado en 'by'."
+        },
+        "input_value": {
+          "description": "Texto a ingresar en un campo de entrada (para 'input')."
+        },
+        "key": {
+          "description": "Tecla a presionar en un elemento (para 'key_press'). Debe ser una tecla válida de Selenium Keys."
+        },
+        "hidden": {
+          "description": "Indica si el campo de entrada está oculto. Es un valor booleano (para 'input')."
+        },
+        "wait": {
+          "description": "Tiempo en segundos para esperar entre acciones. Puede ser un número entero o decimal."
+        },
+        "columns": {
+          "description": "Definición de columnas para la acción 'find_elements'.",
+          "action": {
+            "description": "Tipo de acción a realizar dentro de 'columns'. Los valores posibles son: 'get_element_text', 'store_data'."
+          },
+          "by": {
+            "description": "Método para ubicar el elemento dentro de 'columns'. El valor posible es 'CSS_SELECTOR'."
+          },
+          "value": {
+            "description": "Selector específico del elemento dentro de 'columns'. Debe ser un selector válido."
+          },
+          "save_as": {
+            "description": "Nombre de la clave en la que se almacenará el texto obtenido. Se usa para almacenar datos en el formato especificado."
+          },
+          "data": {
+            "description": "Datos a almacenar en 'store_data'. Puede incluir variables que se formatean con los datos del elemento."
+          }
+        },
+        "repeat": {
+          "description": "Número de veces que se repetirá una acción. Es un número entero positivo."
+        }
+      },
+      "output": {
+        "description": "Detalles sobre el archivo de salida donde se guardarán los datos obtenidos.",
+        "filename": {
+          "description": "Nombre del archivo Excel donde se almacenarán los datos. Debe incluir la extensión '.xlsx'."
+        },
+        "columns": {
+          "description": "Lista de nombres de columnas que se incluirán en el archivo de salida. Debe coincidir con los nombres de las columnas en los datos."
+        }
       }
-  ],
-  "next_page_selector": {
-      "by": "LINK_TEXT / ID / NAME / TAG_NAME / CLASS_NAME / CSS_SELECTOR / XPATH",
-      "value": "El valor del selector que identifica el botón de la siguiente página"
-  },
-  "output": {
-      "filename": "Nombre del archivo Excel donde se guardarán los datos extraídos",
-      "columns": ["Lista de nombres de columnas a guardar en el archivo de salida"]
+    }
   }
-}
+  

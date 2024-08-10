@@ -26,42 +26,36 @@
             "value": "/html/body/main/div[2]/section/section[2]/div/ul/li",
             "columns": [
                 {
-                    "action": "click",
-                    "by": "XPATH",
-                    "value": "/html/body/main/div[2]/section/section[2]/div/ul/li"
-                },
-                {
                     "action": "get_element_text",
                     "by": "CSS_SELECTOR",
-                    "value": "body > main > div.flex-w > section > section.dias.card_struct > div > ul > li.grid-item.dia> span > span.text-0",
-                    "save_as": "day_name"
+                    "value": "span > span.text-0",
+                    "save_as": "Dia"
                 },
                 {
                     "action": "get_element_text",
                     "by": "CLASS_NAME",
                     "value": "subtitle-m",
-                    "save_as": "date"
+                    "save_as": "Fecha"
                 },
                 {
                     "action": "get_element_text",
                     "by": "CLASS_NAME",
                     "value": "temp",
-                    "save_as": "temperature"
-                },
-                {
-                    "action": "store_data",
-                    "data": {
-                        "Día": "{day_name}",
-                        "Fecha": "{date}",
-                        "Temperatura Máxima y Mínima": "{temperature}"
-                    }
+                    "save_as": "Temperatura Máxima y Mínima"
                 }
             ]
         }
-        
     ],
-    "output": {
-        "filename": "clima.xlsx",
-        "columns": ["Día", "Fecha", "Temperatura Máxima y Mínima"]
-    }
+    "output_configs": [
+        {
+            "section": "default",
+            "filename": "clima",
+            "format": "excel",
+            "columns": [
+                "Dia",
+                "Fecha",
+                "Temperatura Máxima y Mínima"
+            ]
+        }
+    ]
 }

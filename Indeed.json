@@ -17,63 +17,48 @@
       "action": "key_press",
       "by": "ID",
       "value": "text-input-where",
-      "key": "ENTER"
-    },
-    {
-      "action": "wait",
-      "wait": 5
-    },
-    {
-      "action": "get_element_text",
-      "by": "CLASS_NAME",
-      "value": "jobsearch-JobCountAndSortPane-jobCount",
-      "save_as": "job_count"
+      "key": "ENTER",
+      "wait": 3
     },
     {
       "action": "find_elements",
-      "by": "CLASS_NAME",
-      "value": "job_seen_beacon",
+      "by": "CSS_SELECTOR",
+      "value": "#mosaic-provider-jobcards > ul > li",
       "columns": [
         {
-          "action": "click",
-          "by": "CLASS_NAME",
-          "value": "big6_visualChanges css-1v79ar eu4oa1w0"
-        },
-        {
-          "action": "wait",
-          "wait": 5
+          "action": "get_element_text",
+          "by": "XPATH",
+          "value": "/html/body/main/div/div[2]/div/div[5]/div/div[1]/div[5]/div/ul/li/div/div/div/div/div/table/tbody/tr/td[1]/div[1]/h2/a/span",
+          "save_as": "Trabajo"
         },
         {
           "action": "get_element_text",
           "by": "XPATH",
-          "value": "/html/body/main/div/div[2]/div/div[5]/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div[1]/div[1]/h2/span[1]",
-          "save_as": "title"
+          "value": "/html/body/main/div/div[2]/div/div[5]/div/div[1]/div[5]/div/ul/li/div/div/div/div/div/table/tbody/tr/td[1]/div[2]/div/div[1]/span",
+          "save_as": "Empresa"
         },
         {
           "action": "get_element_text",
           "by": "XPATH",
-          "value": "/html/body/main/div/div[2]/div/div[5]/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div[1]/div[2]/div/div/div/div[1]/div/span/a",
-          "save_as": "company"
-        },
-        {
-          "action": "get_element_text",
-          "by": "XPATH",
-          "value": "/html/body/main/div/div[2]/div/div[5]/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div[2]/div/div",
-          "save_as": "salary"
+          "value": "/html/body/main/div/div[2]/div/div[5]/div/div[1]/div[5]/div/ul/li/div/div/div/div/div/table/tbody/tr/td[1]/div[3]",
+          "save_as": "Salario y horario"
         },
         {
           "action": "store_data",
           "data": {
-            "Puesto": "{title}",
-            "Empresa": "{company}",
-            "Pago y horario": "{salary}"
+            "Trabajo": "{Trabajo}",
+            "Empresa": "{Empresa}",
+            "Salario y horario": "{Salario y horario}"
           }
         }
       ]
     }
   ],
-  "output": {
-    "filename": "trabajos.xlsx",
-    "columns": ["Puesto", "Empresa", "Pago y horario"]
-  }
+  "output_configs": [
+    {
+      "section": "default",
+      "filename": "trabajos",
+      "format": "excel"
+    }
+  ]
 }

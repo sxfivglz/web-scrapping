@@ -3,7 +3,7 @@
     "actions": [
         {
             "action": "input",
-            "by": "css_selector",
+            "by": "CSS_SELECTOR",
             "value": "#email",
             "input_value": "20170142",
             "hidden": false,
@@ -11,7 +11,7 @@
         },
         {
             "action": "input",
-            "by": "css_selector",
+            "by": "CSS_SELECTOR",
             "value": "#password",
             "input_value": "siautt_credential",
             "hidden": true,
@@ -19,84 +19,84 @@
         },
         {
             "action": "click",
-            "by": "css_selector",
+            "by": "CSS_SELECTOR",
             "value": "body > div > div.login-box.animated.fadeInDown > div.login-body > form > div:nth-child(5) > div > div > button",
             "wait": 2
         },
         {
             "action": "click",
-            "by": "link_text",
+            "by": "LINK_TEXT",
             "value": "Mi Espacio",
             "wait": 0
         },
         {
             "action": "click",
-            "by": "link_text",
+            "by": "LINK_TEXT",
             "value": "Finanzas",
             "wait": 0
         },
         {
             "action": "click",
-            "by": "link_text",
+            "by": "LINK_TEXT",
             "value": "Mis Pagos",
             "wait": 2
         },
         {
             "action": "click",
-            "by": "css_selector",
+            "by": "CSS_SELECTOR",
             "value": "#TabConsultar > div > div > div > div.panel-body > div > div.bootstrap-table > div.fixed-table-container > div.fixed-table-pagination > div.pull-left.pagination-detail > span.page-list > span > button",
             "wait": 1
         },
         {
             "action": "click",
-            "by": "link_text",
+            "by": "LINK_TEXT",
             "value": "20",
             "wait": 2
         },
         {
             "action": "find_elements",
-            "by": "css_selector",
+            "by": "CSS_SELECTOR",
             "value": "#Tabla > tbody > tr",
             "columns": [
                 {
                     "action": "get_element_text",
-                    "by": "css_selector",
+                    "by": "CSS_SELECTOR",
                     "value": "td:nth-child(1)",
                     "save_as": "Periodo"
                 },
                 {
                     "action": "get_element_text",
-                    "by": "css_selector",
+                    "by": "CSS_SELECTOR",
                     "value": "td:nth-child(2)",
                     "save_as": "Folio Recibo"
                 },
                 {
                     "action": "get_element_text",
-                    "by": "css_selector",
+                    "by": "CSS_SELECTOR",
                     "value": "td:nth-child(3)",
                     "save_as": "Concepto"
                 },
                 {
                     "action": "get_element_text",
-                    "by": "css_selector",
+                    "by": "CSS_SELECTOR",
                     "value": "td:nth-child(4)",
                     "save_as": "Total"
                 },
                 {
                     "action": "get_element_text",
-                    "by": "css_selector",
+                    "by": "CSS_SELECTOR",
                     "value": "td:nth-child(5)",
                     "save_as": "Pagado"
                 },
                 {
                     "action": "get_element_text",
-                    "by": "css_selector",
+                    "by": "CSS_SELECTOR",
                     "value": "td:nth-child(6)",
                     "save_as": "Estado del Pago"
                 },
                 {
                     "action": "get_element_text",
-                    "by": "css_selector",
+                    "by": "CSS_SELECTOR",
                     "value": "td:nth-child(7)",
                     "save_as": "Fecha de vencimiento"
                 }
@@ -104,8 +104,10 @@
             "wait": 0
         }
     ],
-    "output": {
-        "filename": "finanzas_utt.xlsx",
-        "columns": ["Periodo", "Folio Recibo", "Concepto", "Total", "Pagado", "Estado del Pago", "Fecha de vencimiento"]
-    }
+    "output_configs": [
+        {
+            "section": "default",
+            "filename": "Pagos hechos a UTT"
+        }
+    ]
 }

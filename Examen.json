@@ -1,0 +1,389 @@
+{
+    "start_url": "https://www.tecnm.mx/?vista=Asignaturas_test",
+    "actions": [
+        {
+            "action": "select",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(2) > div.col-5.mb-1.text-left > select",
+            "input_value": "100",
+            "wait": 5
+        },
+        {
+            "action": "select",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(1) > div:nth-child(1) > select",
+            "input_value": "Ingeniería en Tic",
+            "wait": 5
+        },
+        {
+            "action": "find_elements",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > div.row",
+            "section": "Ingeniería en Tic",
+            "columns": [
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(1) > div > div > div.col-12.px-4",
+                    "save_as": "Programa Educativo"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(2) > div > div > div.col-12.px-4",
+                    "save_as": "Asignatura"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(3) > div > div > div.col-12.px-4",
+                    "save_as": "Tema"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(4) > div > div > div.col-12.px-4",
+                    "save_as": "Sitio"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(5) > div > div > div.col-12.px-4",
+                    "save_as": "Enlace directo de la practica"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(6) > div > div > div.col-12.px-4",
+                    "save_as": "Alcance"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(7) > div > div > div.col-12.px-4",
+                    "save_as": "Observaciones"
+                },
+                {
+                    "action": "store_data",
+                    "data": {
+                        "Programa Educativo": "{Programa Educativo}",
+                        "Asignatura": "{Asignatura}",
+                        "Tema": "{Tema}",
+                        "Sitio": "{Sitio}",
+                        "Enlace directo de la practica": "{Enlace directo de la practica}",
+                        "Alcance": "{Alcance}",
+                        "Observaciones": "{Observaciones}"
+                    }
+                }
+            ],
+            "wait": 1
+        },
+        {
+            "action": "select",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(1) > div:nth-child(1) > select",
+            "input_value": "Ingeniería Ambiental",
+            "wait": 5
+        },
+        {
+            "action": "find_elements",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > div.row",
+            "section": "Ingeniería Ambiental",
+            "columns": [
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(1) > div > div > div.col-12.px-4",
+                    "save_as": "Programa Educativo"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(2) > div > div > div.col-12.px-4",
+                    "save_as": "Asignatura"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(3) > div > div > div.col-12.px-4",
+                    "save_as": "Tema"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(4) > div > div > div.col-12.px-4",
+                    "save_as": "Sitio"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(5) > div > div > div.col-12.px-4",
+                    "save_as": "Enlace directo de la practica"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(6) > div > div > div.col-12.px-4",
+                    "save_as": "Alcance"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(7) > div > div > div.col-12.px-4",
+                    "save_as": "Observaciones"
+                },
+                {
+                    "action": "store_data",
+                    "data": {
+                        "Programa Educativo": "{Programa Educativo}",
+                        "Asignatura": "{Asignatura}",
+                        "Tema": "{Tema}",
+                        "Sitio": "{Sitio}",
+                        "Enlace directo de la practica": "{Enlace directo de la practica}",
+                        "Alcance": "{Alcance}",
+                        "Observaciones": "{Observaciones}"
+                    }
+                }
+            ],
+            "wait": 1
+        },
+        {
+            "action": "select",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(1) > div:nth-child(1) > select",
+            "input_value": "Ingeniería en Administración",
+            "wait": 5
+        },
+        {
+            "action": "find_elements",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > div.row",
+            "section": "Ingeniería en Administración",
+            "columns": [
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(1) > div > div > div.col-12.px-4",
+                    "save_as": "Programa Educativo"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(2) > div > div > div.col-12.px-4",
+                    "save_as": "Asignatura"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(3) > div > div > div.col-12.px-4",
+                    "save_as": "Tema"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(4) > div > div > div.col-12.px-4",
+                    "save_as": "Sitio"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(5) > div > div > div.col-12.px-4",
+                    "save_as": "Enlace directo de la practica"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(6) > div > div > div.col-12.px-4",
+                    "save_as": "Alcance"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(7) > div > div > div.col-12.px-4",
+                    "save_as": "Observaciones"
+                },
+                {
+                    "action": "store_data",
+                    "data": {
+                        "Programa Educativo": "{Programa Educativo}",
+                        "Asignatura": "{Asignatura}",
+                        "Tema": "{Tema}",
+                        "Sitio": "{Sitio}",
+                        "Enlace directo de la practica": "{Enlace directo de la practica}",
+                        "Alcance": "{Alcance}",
+                        "Observaciones": "{Observaciones}"
+                    }
+                }
+            ],
+            "wait": 1
+        },
+        {
+            "action": "select",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(1) > div:nth-child(1) > select",
+            "input_value": "Ingeniería Civil",
+            "wait": 5
+        },
+        {
+            "action": "find_elements",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > div.row",
+            "section": "Ingeniería Civil",
+            "columns": [
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(1) > div > div > div.col-12.px-4",
+                    "save_as": "Programa Educativo"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(2) > div > div > div.col-12.px-4",
+                    "save_as": "Asignatura"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(3) > div > div > div.col-12.px-4",
+                    "save_as": "Tema"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(4) > div > div > div.col-12.px-4",
+                    "save_as": "Sitio"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(5) > div > div > div.col-12.px-4",
+                    "save_as": "Enlace directo de la practica"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(6) > div > div > div.col-12.px-4",
+                    "save_as": "Alcance"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(7) > div > div > div.col-12.px-4",
+                    "save_as": "Observaciones"
+                },
+                {
+                    "action": "store_data",
+                    "data": {
+                        "Programa Educativo": "{Programa Educativo}",
+                        "Asignatura": "{Asignatura}",
+                        "Tema": "{Tema}",
+                        "Sitio": "{Sitio}",
+                        "Enlace directo de la practica": "{Enlace directo de la practica}",
+                        "Alcance": "{Alcance}",
+                        "Observaciones": "{Observaciones}"
+                    }
+                }
+            ],
+            "wait": 1
+        },
+        {
+            "action": "select",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > form > div:nth-child(1) > div:nth-child(1) > select",
+            "input_value": "Ingeniería Eléctrica",
+            "wait": 5
+        },
+        {
+            "action": "find_elements",
+            "by": "css_selector",
+            "value": "body > div.contenido > div.container-fluid.mx-auto.border.p-2 > div.row",
+            "section": "Ingeniería Eléctrica",
+            "columns": [
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(1) > div > div > div.col-12.px-4",
+                    "save_as": "Programa Educativo"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(2) > div > div > div.col-12.px-4",
+                    "save_as": "Asignatura"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(3) > div > div > div.col-12.px-4",
+                    "save_as": "Tema"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(4) > div > div > div.col-12.px-4",
+                    "save_as": "Sitio"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(5) > div > div > div.col-12.px-4",
+                    "save_as": "Enlace directo de la practica"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(6) > div > div > div.col-12.px-4",
+                    "save_as": "Alcance"
+                },
+                {
+                    "action": "get_element_text",
+                    "by": "css_selector",
+                    "value": "div:nth-child(7) > div > div > div.col-12.px-4",
+                    "save_as": "Observaciones"
+                },
+                {
+                    "action": "store_data",
+                    "data": {
+                        "Programa Educativo": "{Programa Educativo}",
+                        "Asignatura": "{Asignatura}",
+                        "Tema": "{Tema}",
+                        "Sitio": "{Sitio}",
+                        "Enlace directo de la practica": "{Enlace directo de la practica}",
+                        "Alcance": "{Alcance}",
+                        "Observaciones": "{Observaciones}"
+                    }
+                }
+            ],
+            "wait": 1
+        }
+    ],
+    "output_configs": [
+        {
+            "filename": "Ingeniería en Tic",
+            "section": "Ingeniería en Tic",
+            "columns": ["Programa Educativo", "Asignatura", "Tema", "Sitio", "Enlace directo de la practica", "Alcance", "Observaciones"]
+        },
+        {
+            "filename": "Ingeniería Ambiental",
+            "section": "Ingeniería Ambiental",
+            "columns": ["Programa Educativo", "Asignatura", "Tema", "Sitio", "Enlace directo de la practica", "Alcance", "Observaciones"]
+        },
+        {
+            "filename": "Ingeniería en Administración",
+            "section": "Ingeniería en Administración",
+            "columns": ["Programa Educativo", "Asignatura", "Tema", "Sitio", "Enlace directo de la practica", "Alcance", "Observaciones"]
+        },
+        {
+            "filename": "Ingeniería Civil",
+            "section": "Ingeniería Civil",
+            "columns": ["Programa Educativo", "Asignatura", "Tema", "Sitio", "Enlace directo de la practica", "Alcance", "Observaciones"]
+        },
+        {
+            "filename": "Ingeniería Eléctrica",
+            "section": "Ingeniería Eléctrica",
+            "columns": ["Programa Educativo", "Asignatura", "Tema", "Sitio", "Enlace directo de la practica", "Alcance", "Observaciones"]
+        }
+    ]
+}
