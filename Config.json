@@ -1,62 +1,47 @@
 {
-    "documentation": {
-      "start_url": {
-        "description": "URL del sitio web a scrapear. Debe ser una URL válida."
-      },
-      "actions": {
-        "description": "Lista de acciones a realizar en el sitio web, ordenadas secuencialmente.",
-        "action": {
-          "description": "Tipo de acción a ejecutar. Los valores posibles son: 'click', 'input', 'key_press', 'wait', 'get_element_text', 'find_elements', 'store_data', 'go_back', 'scroll'."
-        },
-        "by": {
-          "description": "Método para ubicar el elemento. Los valores posibles son: 'CSS_SELECTOR', 'ID', 'NAME', 'XPATH', 'LINK_TEXT', 'PARTIAL_LINK_TEXT', 'TAG_NAME', 'CLASS_NAME'."
-        },
-        "value": {
-          "description": "Selector específico del elemento en la página web. Debe ser un selector válido según el método especificado en 'by'."
-        },
-        "input_value": {
-          "description": "Texto a ingresar en un campo de entrada (para 'input')."
-        },
-        "key": {
-          "description": "Tecla a presionar en un elemento (para 'key_press'). Debe ser una tecla válida de Selenium Keys."
-        },
-        "hidden": {
-          "description": "Indica si el campo de entrada está oculto. Es un valor booleano (para 'input')."
-        },
-        "wait": {
-          "description": "Tiempo en segundos para esperar entre acciones. Puede ser un número entero o decimal."
-        },
-        "columns": {
-          "description": "Definición de columnas para la acción 'find_elements'.",
-          "action": {
-            "description": "Tipo de acción a realizar dentro de 'columns'. Los valores posibles son: 'get_element_text', 'store_data'."
+  "start_url": "URL de inicio desde donde comenzará la automatización. Debe ser una URL válida.",
+  "actions": [
+      {
+          "action": "Tipo de acción a realizar en el scraping. Valores posibles incluyen:",
+          "action:desc": {
+              "input": "Introduce un valor en un campo de texto.",
+              "click": "Realiza un clic en un elemento.",
+              "select": "Selecciona una opción en un menú desplegable.",
+              "checkbox": "Marca o desmarca una casilla de verificación.",
+              "keyboard": "Envía una secuencia de teclas al navegador.",
+              "scroll": "Desplaza la página en una dirección específica.",
+              "find_elements": "Encuentra múltiples elementos y extrae datos de ellos."
           },
-          "by": {
-            "description": "Método para ubicar el elemento dentro de 'columns'. El valor posible es 'CSS_SELECTOR'."
+          "by": "Método para localizar el elemento en la página. Los valores posibles incluyen:",
+          "by:desc": {
+              "ID": "Por el identificador del elemento.",
+              "NAME": "Por el nombre del elemento.",
+              "TAG_NAME": "Por el nombre de la etiqueta del elemento.",
+              "CLASS_NAME": "Por la clase del elemento.",
+              "CSS_SELECTOR": "Por un selector CSS.",
+              "XPATH": "Por una expresión XPath.",
+              "LINK_TEXT": "Por el texto del enlace."
           },
-          "value": {
-            "description": "Selector específico del elemento dentro de 'columns'. Debe ser un selector válido."
-          },
-          "save_as": {
-            "description": "Nombre de la clave en la que se almacenará el texto obtenido. Se usa para almacenar datos en el formato especificado."
-          },
-          "data": {
-            "description": "Datos a almacenar en 'store_data'. Puede incluir variables que se formatean con los datos del elemento."
-          }
-        },
-        "repeat": {
-          "description": "Número de veces que se repetirá una acción. Es un número entero positivo."
-        }
-      },
-      "output": {
-        "description": "Detalles sobre el archivo de salida donde se guardarán los datos obtenidos.",
-        "filename": {
-          "description": "Nombre del archivo Excel donde se almacenarán los datos. Debe incluir la extensión '.xlsx'."
-        },
-        "columns": {
-          "description": "Lista de nombres de columnas que se incluirán en el archivo de salida. Debe coincidir con los nombres de las columnas en los datos."
-        }
+          "value": "Valor del selector que identifica al elemento basado en el método definido en 'by'.",
+          "input_value": "Valor a ingresar en un campo de texto, select, o mediante el teclado. Solo aplicable para acciones de tipo 'input', 'select', o 'keyboard'.",
+          "hidden": "Indica si el valor del campo debe estar oculto (como contraseñas). Solo aplicable para acciones de tipo 'input'.",
+          "direction": "Dirección de desplazamiento. Valores posibles: 'up', 'down'. Solo aplicable para acciones de tipo 'scroll'.",
+          "wait": "Tiempo en segundos para esperar después de realizar la acción. Utilizado para esperar la carga de elementos.",
+          "columns": "Lista de columnas a extraer cuando la acción es 'find_elements'. Cada columna puede tener:",
+          "columns_desc": [
+              {
+                  "action": "get_element_text",
+                  "by": "Método para localizar el texto del elemento dentro de una columna. Valores posibles incluyen 'CSS_SELECTOR'.",
+                  "value": "Selector para encontrar el texto dentro de cada celda de la columna.",
+                  "save_as": "Nombre con el que se guardará el texto extraído de la columna."
+              }
+          ]
       }
-    }
-  }
-  
+  ],
+  "output_configs": [
+      {
+          "filename": "Nombre del archivo de salida donde se guardarán los datos extraídos. El formato puede ser especificado (xlsx, csv), sino se utilizará el formato xlsx.",
+          "columns": "Lista de nombres de columnas que deben ser incluidos en el archivo de salida. Estos deben coincidir con los nombres definidos en 'columns' y 'save_as' en las acciones."
+      }
+  ]
+}

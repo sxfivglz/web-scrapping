@@ -98,7 +98,6 @@
     ],
     "output_configs": [
         {
-            "section": "default",
             "filename": "Adafruit",
             "columns": ["Fecha y hora", "Datos"]
         }

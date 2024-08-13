@@ -106,7 +106,6 @@
     ],
     "output_configs": [
         {
-            "section": "default",
             "filename": "Pagos hechos a UTT"
         }
     ]
